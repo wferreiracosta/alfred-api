@@ -1,7 +1,5 @@
 package br.com.wferreiracosta.loja.resources;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +23,4 @@ public class ClienteResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public ResponseEntity<?> find() {
-		List<Cliente> obj = service.buscar();
-		return ResponseEntity.ok().body(obj);
-	}
 }

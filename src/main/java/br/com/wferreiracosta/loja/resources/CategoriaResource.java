@@ -25,9 +25,4 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	@RequestMapping(value="/", method = RequestMethod.GET)
-	public ResponseEntity<?> find() {
-		List<Categoria> obj = service.buscar();
-		return ResponseEntity.ok().body(obj);
-	}
 }

@@ -1,6 +1,5 @@
 package br.com.wferreiracosta.loja.services;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +18,6 @@ public class ClienteService {
 		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
-	}
-
-	public List<Cliente> buscar() {
-		List<Cliente> obj = repo.findAll();
-		return obj;
 	}
 
 }

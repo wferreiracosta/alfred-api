@@ -21,9 +21,4 @@ public class CategoriaService {
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 
-	public List<Categoria> buscar() {
-		List<Categoria> obj = repo.findAll();
-		return obj;
-	}
-
 }
