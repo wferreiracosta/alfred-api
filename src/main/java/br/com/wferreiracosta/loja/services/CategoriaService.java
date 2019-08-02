@@ -33,8 +33,13 @@ public class CategoriaService {
 	}
 
 	public Categoria update(Categoria obj) {
-		this.find(obj.getId());
-		return repo.save(obj);
+		Categoria newObj = this.find(obj.getId());
+		this.updateData(newObj, obj);
+		return repo.save(newObj);
+	}
+	
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
 	}
 
 	public void delete(Integer id) {
