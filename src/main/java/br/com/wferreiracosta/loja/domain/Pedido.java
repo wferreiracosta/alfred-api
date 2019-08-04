@@ -24,8 +24,8 @@ public class Pedido implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	@JsonFormat(pattern="dd/MM/yyyy HH:mm")
+
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date instante;
 
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "pedido")
@@ -56,12 +56,12 @@ public class Pedido implements Serializable {
 
 	public double getValorTotal() {
 		double soma = 0;
-		for(ItemPedido ip : itens) {
+		for (ItemPedido ip : itens) {
 			soma += ip.getSubTotal();
 		}
 		return soma;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -102,6 +102,14 @@ public class Pedido implements Serializable {
 		this.itens = itens;
 	}
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -129,8 +137,20 @@ public class Pedido implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Pedido [id=" + id + ", instante=" + instante + ", pagamento=" + pagamento + ", cliente=" + cliente
-				+ ", enderecoEntrega=" + enderecoEntrega + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Pedido  Numero: ");
+		builder.append(this.getId());
+		builder.append(", Instante: ");
+		builder.append(this.getInstante());
+		builder.append(", Cliente: ");
+		builder.append(this.getCliente().getNome());
+		builder.append(", Situação do pagamento: ");
+		builder.append(this.getPagamento().getEstado().getDescricao());
+		builder.append("\nDetalhes:\n");
+		this.getItens().forEach(x -> builder.append(x.toString()));
+		builder.append("Valor Total: ");
+		builder.append(this.getValorTotal());
+		return builder.toString();
 	}
 
 }

@@ -110,4 +110,18 @@ public class ItemPedido implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(this.getProduto().getNome());
+		builder.append(", Qte: ");
+		builder.append(this.getQuantidade());
+		builder.append(", Preço unitario: ");
+		builder.append(this.getPreco());
+		builder.append(", SubTotal: ");
+		builder.append(this.getSubTotal());
+		builder.append("\n");
+		return builder.toString();
+	}
+	
 }
