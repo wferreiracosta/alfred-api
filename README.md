@@ -1,5 +1,7 @@
 # Loja
 
+[![Build Status](https://travis-ci.org/wferreiracosta/loja-backend.svg?branch=master)](https://travis-ci.org/wferreiracosta/loja-backend)
+
 ## Requisitos
 
 * JDK >= 8
