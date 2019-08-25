@@ -22,7 +22,6 @@ import br.com.wferreiracosta.loja.domain.Categoria;
 import br.com.wferreiracosta.loja.dto.CategoriaDTO;
 import br.com.wferreiracosta.loja.services.CategoriaService;
 
-@CrossOrigin
 @RestController
 @RequestMapping(value = "/categorias")
 public class CategoriaResource {
@@ -30,6 +29,7 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService service;
 
+	@CrossOrigin
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 		Categoria obj = service.find(id);
@@ -57,6 +57,7 @@ public class CategoriaResource {
 		return ResponseEntity.noContent().build();
 	}
 
+	@CrossOrigin
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<CategoriaDTO>> findAll() {
 		List<Categoria> list = service.findAll();
@@ -64,6 +65,7 @@ public class CategoriaResource {
 		return ResponseEntity.ok().body(listDTO);
 	}
 
+	@CrossOrigin
 	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	public ResponseEntity<Page<CategoriaDTO>> findPage(@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "24") Integer linesPerPage,
