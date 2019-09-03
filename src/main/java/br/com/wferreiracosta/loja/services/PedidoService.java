@@ -59,6 +59,7 @@ public class PedidoService {
 			ip.setPedido(obj);
 		}
 		repoItemPedido.saveAll(obj.getItens());
+		System.out.println(obj);
 		return obj;
 	}
 
