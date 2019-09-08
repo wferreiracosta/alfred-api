@@ -13,6 +13,7 @@ import br.com.wferreiracosta.loja.domain.ItemPedido;
 import br.com.wferreiracosta.loja.domain.PagamentoComBoleto;
 import br.com.wferreiracosta.loja.domain.Pedido;
 import br.com.wferreiracosta.loja.domain.enums.EstadoPagamento;
+import br.com.wferreiracosta.loja.repositories.ClienteRepository;
 import br.com.wferreiracosta.loja.repositories.ItemPedidoRepository;
 import br.com.wferreiracosta.loja.repositories.PagamentoRepository;
 import br.com.wferreiracosta.loja.repositories.PedidoRepository;
@@ -25,6 +26,8 @@ public class PedidoService {
 
 	@Autowired
 	private PagamentoRepository repoPagamento;
+	@Autowired
+	private ClienteRepository repoCliente;
 
 	@Autowired
 	private ItemPedidoRepository repoItemPedido;
@@ -34,6 +37,9 @@ public class PedidoService {
 	
 	@Autowired
 	private BoletoService boletoService;
+	
+	@Autowired
+	private EmailService emailService;
 
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
@@ -45,6 +51,7 @@ public class PedidoService {
 	public Pedido insert(@Valid Pedido obj) {
 		obj.setId(null);
 		obj.setInstante(new Date());
+		obj.setCliente(repoCliente.findById(obj.getCliente().getId()).get());
 		obj.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setPedido(obj);
 		if (obj.getPagamento() instanceof PagamentoComBoleto) {
@@ -55,11 +62,12 @@ public class PedidoService {
 		repoPagamento.save(obj.getPagamento());
 		for (ItemPedido ip : obj.getItens()) {
 			ip.setDesconto(0.0);
+			ip.setProduto(produtoService.find(ip.getProduto().getId()));
 			ip.setPreco(produtoService.find(ip.getProduto().getId()).getPreco());
 			ip.setPedido(obj);
 		}
 		repoItemPedido.saveAll(obj.getItens());
-		System.out.println(obj);
+		emailService.sendOrderConfirmationEmail(obj);
 		return obj;
 	}
 
