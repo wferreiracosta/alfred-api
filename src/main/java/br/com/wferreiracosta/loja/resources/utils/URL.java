@@ -9,7 +9,10 @@ import java.util.stream.Collectors;
 public class URL {
 	public static List<Integer> decodeIntList(String s) {
 		String[] vet = s.split(",");
-		return Arrays.asList(vet).stream().map(x -> Integer.parseInt(x)).collect(Collectors.toList());
+		return Arrays.asList(vet)
+				.stream()
+				.map(x -> Integer.parseInt(x))
+				.collect(Collectors.toList());
 	}
 	
 	public static String decodeParam(String s) {
