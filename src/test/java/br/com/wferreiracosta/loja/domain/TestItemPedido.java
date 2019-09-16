@@ -5,11 +5,16 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import br.com.wferreiracosta.loja.domain.enums.EstadoPagamento;
 import br.com.wferreiracosta.loja.domain.enums.TipoCliente;
 
 public class TestItemPedido {
+	@Autowired
+	private BCryptPasswordEncoder pe;
+	
 	@Test
 	public void exibirItensDoPedido() throws ParseException{
 		Categoria categoria = new Categoria(null, "Informática");
@@ -25,7 +30,7 @@ public class TestItemPedido {
 
 		estado.getCidades().addAll(Arrays.asList(cidade));
 
-		Cliente cliente = new Cliente(null, "Maria Silva", "maria@gmail.com", "36378912377", TipoCliente.PESSOA_FISICA);
+		Cliente cliente = new Cliente(null, "Maria Silva", "maria@gmail.com", "36378912377", TipoCliente.PESSOA_FISICA, pe.encode("123"));
 
 		cliente.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
 

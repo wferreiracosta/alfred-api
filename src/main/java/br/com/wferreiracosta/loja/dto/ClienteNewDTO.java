@@ -6,7 +6,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.br.CPF;
 
 import br.com.wferreiracosta.loja.services.validation.ClienteInsert;
 
@@ -26,6 +25,9 @@ public class ClienteNewDTO implements Serializable {
 	private String cpfOuCnpj;
 	
 	private Integer tipo;
+	
+	@NotEmpty(message = "Preenchimento obrigatório!!!")
+	private String senha;
 
 	@NotEmpty(message = "Preenchimento obrigatório!!!")
 	private String logradouro;
@@ -152,6 +154,14 @@ public class ClienteNewDTO implements Serializable {
 
 	public void setTelefone3(String telefone3) {
 		this.telefone3 = telefone3;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }
