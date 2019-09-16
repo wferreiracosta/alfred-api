@@ -1,6 +1,6 @@
 # Loja
 
-[![Build Status](https://travis-ci.org/wferreiracosta/loja-backend.svg?branch=master)](https://travis-ci.org/wferreiracosta/loja-backend)
+[![Build Status](https://travis-ci.org/wferreiracosta/loja-wferreiracosta-backend.svg?branch=master)](https://travis-ci.org/wferreiracosta/loja-wferreiracosta-backend)
 
 ## Requisitos
 
