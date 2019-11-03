@@ -71,6 +71,17 @@ public class Cliente implements Serializable {
 		this.addPerfil(Perfil.CLIENTE);
 	}
 
+	public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo, Perfil perfil, String senha) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.cpfOuCnpj = cpfOuCnpj;
+		this.tipo = (tipo == null) ? null : tipo.getCod();
+		this.senha = senha;
+		this.addPerfil(perfil);
+	}
+	
 	public Set<Perfil> getPerfil() {
 		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
 	}

@@ -13,23 +13,22 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	
-	@ManyToMany(mappedBy = "categorias")
+	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>();
+	
+	public Categoria() {
+	}
 
 	public Categoria(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
-	}
-
-	public Categoria() {
-		super();
 	}
 
 	public Integer getId() {
@@ -79,11 +78,6 @@ public class Categoria implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Categoria [id=" + id + ", nome=" + nome + "]";
 	}
 
 }
