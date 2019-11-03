@@ -3,7 +3,6 @@ package br.com.wferreiracosta.loja.services;
 import java.util.List;
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -16,25 +15,34 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.wferreiracosta.loja.domain.Cidade;
 import br.com.wferreiracosta.loja.domain.Cliente;
 import br.com.wferreiracosta.loja.domain.Endereco;
+import br.com.wferreiracosta.loja.domain.enums.Perfil;
 import br.com.wferreiracosta.loja.domain.enums.TipoCliente;
 import br.com.wferreiracosta.loja.dto.ClienteDTO;
 import br.com.wferreiracosta.loja.dto.ClienteNewDTO;
 import br.com.wferreiracosta.loja.repositories.ClienteRepository;
 import br.com.wferreiracosta.loja.repositories.EnderecoRepository;
+import br.com.wferreiracosta.loja.security.UserSS;
+import br.com.wferreiracosta.loja.services.exceptions.AuthorizationException;
 import br.com.wferreiracosta.loja.services.exceptions.DataIntegrityException;
 import br.com.wferreiracosta.loja.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClienteService {
 	@Autowired
-	private BCryptPasswordEncoder pe; 
-	
+	private BCryptPasswordEncoder pe;
+
 	@Autowired
 	private ClienteRepository repo;
 	@Autowired
 	private EnderecoRepository repoEndereco;
 
 	public Cliente find(Integer id) {
+		UserSS user = UserService.authenticated();
+		
+		if(user == null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso Negado!!!");
+		}
+		
 		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
