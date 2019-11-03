@@ -19,7 +19,6 @@ public class UserSS implements UserDetails{
 	private Collection<? extends GrantedAuthority> authorities;
 	
 	public UserSS() {
-		super();
 	}
 
 	public UserSS(Integer id, String email, String password, Set<Perfil> perfis) {
