@@ -10,27 +10,19 @@ import br.com.wferreiracosta.loja.domain.Categoria;
 
 public class CategoriaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	private Integer id;
 	
-	@NotEmpty(message="Preenchimento Obrigatório")
+	@NotEmpty(message="Preenchimento obrigatório")
 	@Length(min=5, max=80, message="O tamanho deve ser entre 5 e 80 caracteres")
 	private String nome;
 
 	public CategoriaDTO() {
-		super();
 	}
-
-	public CategoriaDTO(Integer id, String nome) {
-		super();
-		this.id = id;
-		this.nome = nome;
-	}
-
-	public CategoriaDTO(Categoria categoria) {
-		super();
-		this.id = categoria.getId();
-		this.nome = categoria.getNome();
+	
+	public CategoriaDTO(Categoria obj) {
+		id = obj.getId();
+		nome = obj.getNome();
 	}
 
 	public Integer getId() {
@@ -47,6 +39,5 @@ public class CategoriaDTO implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
+	}	
 }
