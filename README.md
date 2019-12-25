@@ -1,11 +1,10 @@
-# Loja
-
-[![Build Status](https://travis-ci.org/wferreiracosta/loja-wferreiracosta-backend.svg?branch=master)](https://travis-ci.org/wferreiracosta/loja-wferreiracosta-backend) [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/wferreiracosta/loja-wferreiracosta-backend)
+# Howard
 
 ## Requisitos
 
-* JDK >= 8
-* Maven >= 3.6.0
+* Java JDK >= 8
+* Maven
+* Git
 
 ## Banco de Dados
 
