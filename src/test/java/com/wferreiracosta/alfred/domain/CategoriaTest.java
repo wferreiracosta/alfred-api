@@ -77,4 +77,15 @@ public class CategoriaTest {
         assertThat(categoria.toString()).contains(Integer.toString(ID));
         assertThat(categoria.toString()).contains(NOME);
     }
+
+    @Test
+    public void testandoToStringDaClasseCategoriaComBuilder(){
+        String categoriaToString = Categoria.builder()
+            .id(ID)
+            .nome(NOME)
+            .toString();
+
+        assertThat(categoriaToString).contains(Integer.toString(ID));
+        assertThat(categoriaToString).contains(NOME);
+    }
 }
