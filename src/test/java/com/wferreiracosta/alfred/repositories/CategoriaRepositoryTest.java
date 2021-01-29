@@ -52,4 +52,25 @@ public class CategoriaRepositoryTest {
         Optional<Categoria> categoriaRetornada = this.repository.findById(categoriaSalva.getId());
         assertThat(categoriaRetornada.isPresent()).isTrue();
     }
+
+    @Test
+    @DisplayName("Deve apagar uma Categoria")
+    public void apagarCategoria(){
+        Categoria categoria = CategoriaTest.criarCategoriaComIdAutomatico();
+        this.entityManager.persist(categoria);
+        Categoria categoriaRetornada = this.entityManager.find(Categoria.class, categoria.getId());
+        this.repository.delete(categoriaRetornada);
+        Categoria categoriaApagada = this.entityManager.find(Categoria.class, categoria.getId());
+        assertThat(categoriaApagada).isNull();
+    }
+
+    @Test
+    @DisplayName("Deve salvar uma Categoria")
+    public void salvarCategoria(){
+        Categoria categoria = CategoriaTest.criarCategoriaComIdAutomatico();
+        Categoria categoriaSalva = this.repository.save(categoria);
+        assertThat(categoriaSalva.getId()).isNotNull();
+        assertThat(categoriaSalva.getId()).isEqualTo(categoria.getId());
+        assertThat(categoriaSalva.getNome()).isEqualTo(categoria.getNome());
+    }
 }
