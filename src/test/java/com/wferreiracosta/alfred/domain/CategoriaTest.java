@@ -2,6 +2,7 @@ package com.wferreiracosta.alfred.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.ActiveProfiles;
@@ -13,7 +14,14 @@ public class CategoriaTest {
     private final String NOME = "Escritorio";
     private final Integer ID = 1;
 
+    public static Categoria criarCategoriaComIdAutomatico() {
+        return Categoria.builder()
+            .nome("Categoria Teste")
+            .build();
+    }
+
     @Test
+    @DisplayName("Deve criar um objeto Categoria atraves do Builder")
     public void criarObjetoCategoria(){
         Categoria categoria = Categoria.builder()
             .id(ID)
@@ -25,6 +33,7 @@ public class CategoriaTest {
     }
 
     @Test
+    @DisplayName("Deve criar objeto Categoria usando os metodos Set")
     public void criarObjetoCategoriaPeloMetodoSet(){
         Categoria categoria = new Categoria();
         categoria.setId(ID);
@@ -35,6 +44,7 @@ public class CategoriaTest {
     }
 
     @Test
+    @DisplayName("Deve retornar verdadeiro na comparação das duas Categorias usando equals")
     public void testandoDuasCategoriasNaoSaoIguaisComEquals(){
         Categoria categoria1 = new Categoria();
         categoria1.setId(ID);
@@ -46,6 +56,7 @@ public class CategoriaTest {
     }
 
     @Test
+    @DisplayName("Deve retornar falso na comparação das duas Categorias usando equals")
     public void testandoDuasCategoriasQueSaoIguaisComEquals(){
         Categoria categoria1 = Categoria.builder()
             .id(ID)
@@ -58,6 +69,7 @@ public class CategoriaTest {
     }
 
     @Test
+    @DisplayName("Deve retornar verdadeiro na comparação das duas Categorias usando hashCode")
     public void testandoSeDuasCategoriasSaoIguaisComHashCode(){
         Categoria categoria1 = new Categoria();
         categoria1.setId(ID);
@@ -69,6 +81,7 @@ public class CategoriaTest {
     }
 
     @Test
+    @DisplayName("Objeto Categoria deve retornar no toString")
     public void testandoToStringDaClasseCategoria(){
         Categoria categoria = new Categoria();
         categoria.setId(ID);
@@ -79,6 +92,7 @@ public class CategoriaTest {
     }
 
     @Test
+    @DisplayName("Objeto Categoria deve retornar no toString do Builder")
     public void testandoToStringDaClasseCategoriaComBuilder(){
         String categoriaToString = Categoria.builder()
             .id(ID)
