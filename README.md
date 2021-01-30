@@ -17,10 +17,16 @@ API de e-commerce feito com Spring Boot com as principais atividades de uma loja
 - Camada de serviço (service): Serviços para os controladores REST
 - Camada de acesso a dados (repository): Camada que conversa com o banco de dados
 
-### Iniciar projeto através de command line
+### Executar projeto através de command line
 
 ```
 mvn spring-boot:run
+```
+
+### Executar projeto com profile específico através de command line
+
+```
+mvn spring-boot:run -Dspring-boot.run.profiles= [PROFILE]
 ```
 
 ### Banco de dados
