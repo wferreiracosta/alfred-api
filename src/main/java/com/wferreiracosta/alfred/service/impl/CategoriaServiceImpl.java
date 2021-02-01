@@ -22,7 +22,8 @@ public class CategoriaServiceImpl implements CategoriaService {
 
   @Override
   public Optional<Categoria> findById(Integer id) {
-    return this.repository.findById(id);
+    Optional<Categoria> obj = this.repository.findById(id);
+    return obj;
   }
 
 }
