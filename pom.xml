@@ -67,6 +67,7 @@
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<plugins>
+
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -86,11 +87,13 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin> 
 				<groupId>org.apache.maven.plugins</groupId> 
 				<artifactId>maven-compiler-plugin</artifactId> 
 				<version>3.8.1</version> 
 			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -103,6 +106,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M5</version>
@@ -122,6 +126,7 @@
 					</statelessTestsetInfoReporter>
 				</configuration>
 			</plugin>
+			
 		</plugins>
 	</build>
 
