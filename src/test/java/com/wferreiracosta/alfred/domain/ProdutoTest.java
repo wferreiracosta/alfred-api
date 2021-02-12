@@ -13,8 +13,15 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 public class ProdutoTest {
 
   private final Integer ID = 1;
-  private final String NOME = "";
+  private final String NOME = "Computador";
   private final Double PRECO = 10.00;
+
+  public static Produto criarProdutoComIdAutomatico(){
+    return Produto.builder()
+      .nome("Computador")
+      .preco(10.00)
+      .build();
+  }
 
   @Test
   @DisplayName("Deve criar um objeto Produto atraves do Builder")
