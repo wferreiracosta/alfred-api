@@ -66,4 +66,17 @@ public class ProdutoRepositoryTest {
     boolean existeProduto = this.repository.existsById(produtoSalvo.getId());
     assertThat(existeProduto).isFalse();
   }
+
+  @Test
+  @DisplayName("Deve salvar um Produto")
+  public void deveSalvarProduto(){
+    Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
+    Produto produtoSalvo = this.entityManager.persist(produto);
+    Optional<Produto> produtoRetornado = this.repository.findById(produtoSalvo.getId());
+
+    assertThat(produtoRetornado.get().getId()).isNotNull();
+    assertThat(produtoRetornado.get().getId()).isEqualTo(produtoSalvo.getId());
+    assertThat(produtoRetornado.get().getNome()).isEqualTo(produtoSalvo.getNome());
+    assertThat(produtoRetornado.get().getPreco()).isEqualTo(produtoSalvo.getPreco());
+  }
 }
