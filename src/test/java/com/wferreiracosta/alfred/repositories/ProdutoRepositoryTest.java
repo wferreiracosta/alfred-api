@@ -27,10 +27,19 @@ public class ProdutoRepositoryTest {
 
   @Test
   @DisplayName("Deve retornar verdadeira quando o Produto existir")
-  public void deveRetornarverdadeiroQuandoProdutoExistir(){
+  public void deveRetornarVerdadeiroQuandoProdutoExistir(){
     Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
     Produto produtoSalvo = this.entityManager.persist(produto);
     boolean existeProduto = this.repository.existsById(produtoSalvo.getId());
     assertThat(existeProduto).isTrue();
   }
+
+  @Test
+  @DisplayName("Deve retornar falso quando o Produto não existir")
+  public void deveRetornarFalsoQuandoProdutoNaoExistir(){
+    Integer id = 1;
+    boolean existeProduto = this.repository.existsById(id);
+    assertThat(existeProduto).isFalse();
+  }
+
 }
