@@ -2,6 +2,8 @@ package com.wferreiracosta.alfred.repositories;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Optional;
+
 import com.wferreiracosta.alfred.domain.Produto;
 import com.wferreiracosta.alfred.domain.ProdutoTest;
 
@@ -40,6 +42,19 @@ public class ProdutoRepositoryTest {
     Integer id = 1;
     boolean existeProduto = this.repository.existsById(id);
     assertThat(existeProduto).isFalse();
+  }
+
+  @Test
+  @DisplayName("Deve retornar o produto")
+  public void deveRetornarProduto(){
+    Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
+    Produto produtoSalvo = this.entityManager.persist(produto);
+    Optional<Produto> produtoRetornado = this.repository.findById(produtoSalvo.getId());
+
+    assertThat(produtoRetornado.get().getId()).isNotNull();
+    assertThat(produtoRetornado.get().getId()).isEqualTo(produtoSalvo.getId());
+    assertThat(produtoRetornado.get().getNome()).isEqualTo(produtoSalvo.getNome());
+    assertThat(produtoRetornado.get().getPreco()).isEqualTo(produtoSalvo.getPreco());
   }
 
 }
