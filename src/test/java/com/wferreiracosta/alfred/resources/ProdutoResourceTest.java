@@ -36,8 +36,8 @@ public class ProdutoResourceTest {
   ProdutoService service;
 
   @Test
-  @DisplayName("Deve retornar o produto relacionado a id")
-  public void deveRetornarProduto() throws Exception {
+  @DisplayName("Deve buscar e retornar o produto que existe relacionado a id")
+  public void deveBuscarERetornarProdutoQueExiste() throws Exception {
     Integer id = 1;
     Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
     produto.setId(id);
@@ -58,4 +58,26 @@ public class ProdutoResourceTest {
       .andExpect(MockMvcResultMatchers.jsonPath("nome").value(produto.getNome()))
       .andExpect(MockMvcResultMatchers.jsonPath("preco").value(produto.getPreco()));
   }
+
+  @Test
+  @DisplayName("Deve buscar um produto que não existe e retornar erro 404")
+  public void deveBuscarUmProdutoQueNaoExistente() throws Exception {
+    Integer id = 1;
+    String msg = "Objeto não encontrado! Id: " + id + ", Tipo: " + Produto.class.getName();
+
+    BDDMockito.given(this.service.findById(id))
+      .willReturn(Optional.empty());
+
+    MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+      .get(PRODUTO_API.concat("/"+id))
+      .contentType(MediaType.APPLICATION_JSON)
+      .accept(MediaType.APPLICATION_JSON);
+
+    this.mvc
+      .perform(request)
+      .andExpect(MockMvcResultMatchers.status().isNotFound())
+      .andExpect(MockMvcResultMatchers.jsonPath("status").value("404"))
+      .andExpect(MockMvcResultMatchers.jsonPath("msg").value(msg));
+  }
+
 }
