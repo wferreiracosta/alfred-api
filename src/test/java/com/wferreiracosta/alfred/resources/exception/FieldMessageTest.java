@@ -24,4 +24,13 @@ public class FieldMessageTest {
     assertThat(fieldMessage.getFieldName()).isEqualTo(FIELDNAME);
     assertThat(fieldMessage.getMessage()).isEqualTo(MESSAGE);
   }
+
+  @Test
+  @DisplayName("Deve criar objeto atraves do construtor")
+  public void criarObjetoAtravesDoConstrutor(){
+    FieldMessage fieldMessage = new FieldMessage(FIELDNAME, MESSAGE);
+
+    assertThat(fieldMessage.getFieldName()).isEqualTo(FIELDNAME);
+    assertThat(fieldMessage.getMessage()).isEqualTo(MESSAGE);
+  }
 }
