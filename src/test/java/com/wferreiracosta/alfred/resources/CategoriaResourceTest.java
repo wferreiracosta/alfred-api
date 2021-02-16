@@ -99,7 +99,7 @@ public class CategoriaResourceTest {
       .willReturn(Optional.of(categoria));
 
     MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-      .get(CATEGORIA_API.concat("/"+id))
+      .get(CATEGORIA_API.concat("/"+id+"/produtos"))
       .contentType(MediaType.APPLICATION_JSON)
       .accept(MediaType.APPLICATION_JSON);
 
