@@ -1,6 +1,7 @@
 package com.wferreiracosta.alfred.resources;
 
 import com.wferreiracosta.alfred.dto.CategoriaDTO;
+import com.wferreiracosta.alfred.dto.CategoriaProdutoDTO;
 import com.wferreiracosta.alfred.resources.exception.ObjectNotFoundException;
 import com.wferreiracosta.alfred.service.CategoriaService;
 
@@ -28,10 +29,23 @@ public class CategoriaResource {
         .builder()
         .id(categoria.getId())
         .nome(categoria.getNome())
-        .produtos(categoria.getProdutos())
         .build();
     }).orElseThrow(() -> new ObjectNotFoundException(
         "Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaDTO.class.getName()));
+  }
+
+  @GetMapping(value = "/{id}/produtos")
+  public CategoriaProdutoDTO findByIdWithProducts(@PathVariable Integer id) {
+    log.info("[GET] Fazendo a busca da categoria com produtos usando o id: {}", id);
+    return this.service.findById(id).map(categoria -> {
+      return CategoriaProdutoDTO
+        .builder()
+        .id(categoria.getId())
+        .nome(categoria.getNome())
+        .produtos(categoria.getProdutos())
+        .build();
+    }).orElseThrow(() -> new ObjectNotFoundException(
+        "Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaProdutoDTO.class.getName()));
   }
 
 }
