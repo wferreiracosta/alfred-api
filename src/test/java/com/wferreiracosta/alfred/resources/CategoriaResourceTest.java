@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.wferreiracosta.alfred.domain.Categoria;
 import com.wferreiracosta.alfred.domain.CategoriaTest;
 import com.wferreiracosta.alfred.domain.Produto;
+import com.wferreiracosta.alfred.dto.CategoriaDTO;
 import com.wferreiracosta.alfred.service.CategoriaService;
 
 import org.hamcrest.Matchers;
@@ -65,7 +66,7 @@ public class CategoriaResourceTest {
   @DisplayName("Deve buscar uma categoria que não existe e retornar o status not_found")
   public void deveBuscarUmaCategoriaQueNaoExistente() throws Exception {
     Integer id = 1;
-    String msg = "Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName();
+    String msg = "Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaDTO.class.getName();
 
     BDDMockito.given(this.service.findById(id))
       .willReturn(Optional.empty());
