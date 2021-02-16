@@ -7,6 +7,7 @@ import com.wferreiracosta.alfred.domain.Categoria;
 import com.wferreiracosta.alfred.domain.CategoriaTest;
 import com.wferreiracosta.alfred.domain.Produto;
 import com.wferreiracosta.alfred.dto.CategoriaDTO;
+import com.wferreiracosta.alfred.dto.CategoriaProdutoDTO;
 import com.wferreiracosta.alfred.service.CategoriaService;
 
 import org.hamcrest.Matchers;
@@ -113,4 +114,51 @@ public class CategoriaResourceTest {
       .andExpect(MockMvcResultMatchers.jsonPath("produtos[0]").value(produto))
       .andExpect(MockMvcResultMatchers.jsonPath("produtos", Matchers.hasSize(1)));
   }
+
+  @Test
+  @DisplayName("Deve buscar uma categoria existente que não possua produtos")
+  public void deveBuscarERetornarUmaCategoriaExistenteENaoTemProduto() throws Exception {
+    Integer id = 1;
+
+    Categoria categoria = new Categoria(id, "Informática");
+    
+    BDDMockito.given(this.service.findById(id))
+      .willReturn(Optional.of(categoria));
+
+    MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+      .get(CATEGORIA_API.concat("/"+id+"/produtos"))
+      .contentType(MediaType.APPLICATION_JSON)
+      .accept(MediaType.APPLICATION_JSON);
+
+    this.mvc
+      .perform(request)
+      .andExpect(MockMvcResultMatchers.status().isOk())
+      .andExpect(MockMvcResultMatchers.jsonPath("id").isNotEmpty())
+      .andExpect(MockMvcResultMatchers.jsonPath("id").value(categoria.getId()))
+      .andExpect(MockMvcResultMatchers.jsonPath("nome").value(categoria.getNome()))
+      .andExpect(MockMvcResultMatchers.jsonPath("produtos").isArray())
+      .andExpect(MockMvcResultMatchers.jsonPath("produtos", Matchers.hasSize(0)));
+  }
+
+  @Test
+  @DisplayName("Deve buscar categoria que não existe no endpoint que retorna produtos")
+  public void deveBuscarCategoriaQueNaoExisteNoEndpointQueRetornaProdutos() throws Exception {
+    Integer id = 1;
+    String msg = "Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaProdutoDTO.class.getName();
+
+    BDDMockito.given(this.service.findById(id))
+      .willReturn(Optional.empty());
+
+    MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+      .get(CATEGORIA_API.concat("/"+id+"/produtos"))
+      .contentType(MediaType.APPLICATION_JSON)
+      .accept(MediaType.APPLICATION_JSON);
+
+      this.mvc
+      .perform(request)
+      .andExpect(MockMvcResultMatchers.status().isNotFound())
+      .andExpect(MockMvcResultMatchers.jsonPath("status").value("404"))
+      .andExpect(MockMvcResultMatchers.jsonPath("msg").value(msg));
+  }
+  
 }
