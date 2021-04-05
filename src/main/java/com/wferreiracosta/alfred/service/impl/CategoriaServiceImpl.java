@@ -1,5 +1,6 @@
 package com.wferreiracosta.alfred.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.wferreiracosta.alfred.domain.Categoria;
@@ -24,6 +25,11 @@ public class CategoriaServiceImpl implements CategoriaService {
   public Optional<Categoria> findById(Integer id) {
     Optional<Categoria> obj = this.repository.findById(id);
     return obj;
+  }
+
+  @Override
+  public List<Categoria> findAll() {
+    return this.repository.findAll();
   }
 
 }
