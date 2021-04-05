@@ -1,5 +1,8 @@
 package com.wferreiracosta.alfred.resources;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import com.wferreiracosta.alfred.dto.CategoriaDTO;
 import com.wferreiracosta.alfred.dto.CategoriaProdutoDTO;
 import com.wferreiracosta.alfred.resources.exception.ObjectNotFoundException;
@@ -46,6 +49,14 @@ public class CategoriaResource {
         .build();
     }).orElseThrow(() -> new ObjectNotFoundException(
         "Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaProdutoDTO.class.getName()));
+  }
+
+  @GetMapping
+  public List<CategoriaDTO> findAll(){
+    return this.service.findAll()
+      .stream()
+      .map(categoria -> new CategoriaDTO(categoria.getId(), categoria.getNome()))
+      .collect(Collectors.toList());
   }
 
 }
