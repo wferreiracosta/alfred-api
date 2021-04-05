@@ -2,6 +2,8 @@ package com.wferreiracosta.alfred.repositories;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import com.wferreiracosta.alfred.domain.Categoria;
@@ -72,5 +74,30 @@ public class CategoriaRepositoryTest {
         assertThat(categoriaSalva.getId()).isNotNull();
         assertThat(categoriaSalva.getId()).isEqualTo(categoria.getId());
         assertThat(categoriaSalva.getNome()).isEqualTo(categoria.getNome());
+    }
+
+    @Test
+    @DisplayName("Deve retornar todas as categorias")
+    public void retornarTodasCategorias(){
+        Integer id = 1;
+        Categoria categoria = CategoriaTest.criarCategoriaComIdAutomatico();
+        categoria.setId(id);
+        this.repository.save(categoria);
+    
+        List<Categoria> lista = new ArrayList<>();
+        lista.add(categoria);
+
+        List<Categoria> listaRetornada = this.repository.findAll();
+
+        assertThat(listaRetornada).asList();
+        assertThat(listaRetornada.get(0)).isEqualTo(lista.get(0));
+    }
+
+    @Test
+    @DisplayName("Deve retornar lista vazia porque não tem categoria")
+    public void retornarListaVaziaPorqueNaoTemCategoria(){
+        List<Categoria> listaRetornada = this.repository.findAll();
+        assertThat(listaRetornada).asList();
+        assertThat(listaRetornada.size()).isEqualTo(0);
     }
 }
