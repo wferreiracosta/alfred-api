@@ -2,7 +2,6 @@ package com.wferreiracosta.alfred.repositories;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -79,18 +78,17 @@ public class CategoriaRepositoryTest {
     @Test
     @DisplayName("Deve retornar todas as categorias")
     public void retornarTodasCategorias(){
-        Integer id = 1;
-        Categoria categoria = CategoriaTest.criarCategoriaComIdAutomatico();
-        categoria.setId(id);
+        Categoria categoria = Categoria.builder()
+            .id(1)
+            .nome("Categoria Teste")
+            .build();
+
         this.repository.save(categoria);
-    
-        List<Categoria> lista = new ArrayList<>();
-        lista.add(categoria);
 
         List<Categoria> listaRetornada = this.repository.findAll();
 
         assertThat(listaRetornada).asList();
-        assertThat(listaRetornada.get(0)).isEqualTo(lista.get(0));
+        assertThat(listaRetornada.size()).isEqualTo(1);
     }
 
     @Test
