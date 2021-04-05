@@ -185,5 +185,24 @@ public class CategoriaResourceTest {
       .andExpect(MockMvcResultMatchers.jsonPath("[0]id").value(categoria.getId()))
       .andExpect(MockMvcResultMatchers.jsonPath("[0]nome").value(categoria.getNome()));
   }
+
+  @Test
+  @DisplayName("Deve retornar uma lista vazia porque não tem categoria cadastrada")
+  public void deveRetornarUmaListaVazia() throws Exception {
+    List<Categoria> listaCategoria = new ArrayList<>();
+    BDDMockito.given(this.service.findAll())
+      .willReturn(listaCategoria);
+
+    MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+      .get(CATEGORIA_API)
+      .contentType(MediaType.APPLICATION_JSON)
+      .accept(MediaType.APPLICATION_JSON);
+
+    this.mvc
+      .perform(request)
+      .andExpect(MockMvcResultMatchers.status().isOk())
+      .andExpect(MockMvcResultMatchers.jsonPath("$").isArray())
+      .andExpect(MockMvcResultMatchers.jsonPath("$").isEmpty());
+  }
   
 }
