@@ -2,15 +2,14 @@ package com.wferreiracosta.alfred.resources.exception;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.wferreiracosta.alfred.resources.ControllerTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(SpringExtension.class)
-@ActiveProfiles("test")
-public class FieldMessageTest {
+public class FieldMessageTest extends ControllerTest {
   private final String FIELDNAME = "msg";
 	private final String MESSAGE = "Teste";
 
