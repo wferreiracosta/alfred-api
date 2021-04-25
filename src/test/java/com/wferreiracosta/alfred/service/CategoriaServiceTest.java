@@ -1,28 +1,22 @@
 package com.wferreiracosta.alfred.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import com.wferreiracosta.alfred.domain.Categoria;
+import com.wferreiracosta.alfred.domain.CategoriaTest;
+import com.wferreiracosta.alfred.repositories.CategoriaRepository;
+import com.wferreiracosta.alfred.service.impl.CategoriaServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.wferreiracosta.alfred.domain.Categoria;
-import com.wferreiracosta.alfred.domain.CategoriaTest;
-import com.wferreiracosta.alfred.repositories.CategoriaRepository;
-import com.wferreiracosta.alfred.service.impl.CategoriaServiceImpl;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-@ExtendWith(SpringExtension.class)
-@ActiveProfiles("test")
-public class CategoriaServiceTest {
+public class CategoriaServiceTest extends ServiceTest {
 
   CategoriaService service;
 
