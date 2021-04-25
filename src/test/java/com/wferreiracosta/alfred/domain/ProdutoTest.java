@@ -1,16 +1,11 @@
 package com.wferreiracosta.alfred.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-@ExtendWith(SpringExtension.class)
-@ActiveProfiles("test")
-public class ProdutoTest {
+import static org.assertj.core.api.Assertions.assertThat;
+
+public class ProdutoTest extends DomainTest{
 
   private final Integer ID = 1;
   private final String NOME = "Computador";
