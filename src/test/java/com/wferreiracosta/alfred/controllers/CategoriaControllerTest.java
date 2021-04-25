@@ -1,4 +1,4 @@
-package com.wferreiracosta.alfred.resources;
+package com.wferreiracosta.alfred.controllers;
 
 import com.wferreiracosta.alfred.domain.Categoria;
 import com.wferreiracosta.alfred.domain.CategoriaTest;
@@ -24,8 +24,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-@WebMvcTest(controllers = CategoriaResource.class)
-public class CategoriaResourceTest extends ControllerTest {
+@WebMvcTest(controllers = CategoriaController.class)
+public class CategoriaControllerTest extends ControllerTest {
   static String CATEGORIA_API = "/categorias";
 
   @Autowired

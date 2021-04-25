@@ -1,4 +1,4 @@
-package com.wferreiracosta.alfred.resources;
+package com.wferreiracosta.alfred.controllers;
 
 import com.wferreiracosta.alfred.domain.Produto;
 import com.wferreiracosta.alfred.domain.ProdutoTest;
@@ -17,8 +17,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Optional;
 
-@WebMvcTest(controllers = ProdutoResource.class)
-public class ProdutoResourceTest extends ControllerTest {
+@WebMvcTest(controllers = ProdutoController.class)
+public class ProdutoControllerTest extends ControllerTest {
   static final String PRODUTO_API = "/produtos";
 
   @Autowired

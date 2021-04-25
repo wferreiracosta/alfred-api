@@ -1,4 +1,4 @@
-package com.wferreiracosta.alfred.resources.exception;
+package com.wferreiracosta.alfred.controllers.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
