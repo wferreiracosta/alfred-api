@@ -1,11 +1,11 @@
-package com.wferreiracosta.alfred.resources;
+package com.wferreiracosta.alfred.controllers;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.wferreiracosta.alfred.controllers.exception.ObjectNotFoundException;
 import com.wferreiracosta.alfred.dto.CategoriaDTO;
 import com.wferreiracosta.alfred.dto.CategoriaProdutoDTO;
-import com.wferreiracosta.alfred.resources.exception.ObjectNotFoundException;
 import com.wferreiracosta.alfred.service.CategoriaService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/categorias")
 @RequiredArgsConstructor
 @Slf4j
-public class CategoriaResource {
+public class CategoriaController {
 
   private final CategoriaService service;
 

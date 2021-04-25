@@ -1,13 +1,10 @@
-package com.wferreiracosta.alfred.resources.exception;
+package com.wferreiracosta.alfred.controllers.exception;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.wferreiracosta.alfred.resources.ControllerTest;
+import com.wferreiracosta.alfred.controllers.ControllerTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 public class FieldMessageTest extends ControllerTest {
   private final String FIELDNAME = "msg";

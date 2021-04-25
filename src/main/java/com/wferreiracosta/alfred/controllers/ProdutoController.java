@@ -1,9 +1,9 @@
-package com.wferreiracosta.alfred.resources;
+package com.wferreiracosta.alfred.controllers;
 
 import java.util.Optional;
 
+import com.wferreiracosta.alfred.controllers.exception.ObjectNotFoundException;
 import com.wferreiracosta.alfred.domain.Produto;
-import com.wferreiracosta.alfred.resources.exception.ObjectNotFoundException;
 import com.wferreiracosta.alfred.service.ProdutoService;
 
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value = "/produtos")
 @RequiredArgsConstructor
 @Slf4j
-public class ProdutoResource {
+public class ProdutoController {
 
   private final ProdutoService service;
 

@@ -1,4 +1,4 @@
-package com.wferreiracosta.alfred.resources.exception;
+package com.wferreiracosta.alfred.controllers.exception;
 
 public class ObjectNotFoundException extends RuntimeException{
 	private static final long serialVersionUID = 1L;

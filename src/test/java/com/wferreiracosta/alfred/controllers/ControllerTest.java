@@ -1,4 +1,4 @@
-package com.wferreiracosta.alfred.resources;
+package com.wferreiracosta.alfred.controllers;
 
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
