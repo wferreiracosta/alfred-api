@@ -3,7 +3,6 @@
 [![codecov](https://codecov.io/gh/wferreiracosta/alfred-api/branch/master/graph/badge.svg?token=GQ6V6PGTBN)](https://codecov.io/gh/wferreiracosta/alfred-api)
 
 ![Workflow Master](https://github.com/wferreiracosta/alfred-api/workflows/Workflow%20Master/badge.svg?branch=master)
-![Workflow Homolog](https://github.com/wferreiracosta/alfred-api/workflows/Workflow%20Homolog/badge.svg?branch=homolog)
 
 API de e-commerce feito com Spring Boot com as principais atividades de uma loja.
 
