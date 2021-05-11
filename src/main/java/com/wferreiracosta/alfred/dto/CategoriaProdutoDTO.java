@@ -1,16 +1,15 @@
 package com.wferreiracosta.alfred.dto;
 
+import com.wferreiracosta.alfred.domain.Produto;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.wferreiracosta.alfred.domain.Produto;
-
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
-
 @Builder
-@Data
+@Getter
 public class CategoriaProdutoDTO {
   
   private Integer id;
