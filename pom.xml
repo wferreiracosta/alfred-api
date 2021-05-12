@@ -112,6 +112,13 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.6</version>
+				<configuration>
+					<excludes>
+						<exclude>**/*com/wferreiracosta/alfred/domain/*</exclude>
+						<exclude>**/*com/wferreiracosta/alfred/config/*</exclude>
+						<exclude>**/*com/wferreiracosta/alfred/service/impl/DataBaseServiceImpl.class</exclude>
+					</excludes>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
