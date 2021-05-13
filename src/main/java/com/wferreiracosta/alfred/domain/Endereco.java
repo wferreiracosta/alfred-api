@@ -1,14 +1,12 @@
 package com.wferreiracosta.alfred.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Builder
@@ -29,5 +27,10 @@ public class Endereco implements Serializable {
     private String complemento;
     private String bairro;
     private String cep;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name="cliente_id")
+    private Cliente cliente;
 
 }

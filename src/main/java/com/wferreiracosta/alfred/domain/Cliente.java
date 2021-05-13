@@ -3,11 +3,9 @@ package com.wferreiracosta.alfred.domain;
 import com.wferreiracosta.alfred.domain.enums.TipoCliente;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Builder
 @Getter
@@ -26,5 +24,8 @@ public class Cliente implements Serializable {
     private String email;
     private String cpfOuCnpj;
     private TipoCliente tipoCliente;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Endereco> enderecos;
 
 }
