@@ -1,9 +1,7 @@
 package com.wferreiracosta.alfred.domain;
 
 import com.wferreiracosta.alfred.domain.enums.TipoCliente;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,6 +13,8 @@ import java.util.Set;
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
+@Builder
+@AllArgsConstructor
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
