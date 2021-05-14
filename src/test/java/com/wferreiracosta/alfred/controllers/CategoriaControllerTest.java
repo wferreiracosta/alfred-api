@@ -38,7 +38,7 @@ public class CategoriaControllerTest extends ControllerTest {
   @DisplayName("Deve buscar uma categoria existente e retornar ela")
   public void deveBuscarERetornarUmaCategoriaExistente() throws Exception {
     Integer id = 1;
-    Categoria categoria = CategoriaTest.criarCategoriaComIdAutomatico();
+    Categoria categoria = CategoriaTest.criarCategoriaSemId();
     categoria.setId(id);
 
     BDDMockito.given(this.service.findById(id))

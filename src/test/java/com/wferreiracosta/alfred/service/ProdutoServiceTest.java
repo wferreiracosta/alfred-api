@@ -30,7 +30,7 @@ public class ProdutoServiceTest extends ServiceTest {
   @DisplayName("Deve retornar um Produto")
   public void deveRetornarProduto(){
     Integer id = 1;
-    Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
+    Produto produto = ProdutoTest.criarProdutoSemId();
     produto.setId(id);
 
     Mockito.when(this.repository.findById(id)).thenReturn(Optional.of(produto));

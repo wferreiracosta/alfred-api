@@ -31,7 +31,7 @@ public class ProdutoControllerTest extends ControllerTest {
   @DisplayName("Deve buscar e retornar o produto que existe relacionado a id")
   public void deveBuscarERetornarProdutoQueExiste() throws Exception {
     Integer id = 1;
-    Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
+    Produto produto = ProdutoTest.criarProdutoSemId();
     produto.setId(id);
 
     BDDMockito.given(this.service.findById(id))

@@ -22,7 +22,7 @@ public class ProdutoRepositoryTest extends RepositoryTest {
   @Test
   @DisplayName("Deve retornar verdadeira quando o Produto existir")
   public void deveRetornarVerdadeiroQuandoProdutoExistir(){
-    Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
+    Produto produto = ProdutoTest.criarProdutoSemId();
     Produto produtoSalvo = this.entityManager.persist(produto);
     boolean existeProduto = this.repository.existsById(produtoSalvo.getId());
     assertThat(existeProduto).isTrue();
@@ -39,7 +39,7 @@ public class ProdutoRepositoryTest extends RepositoryTest {
   @Test
   @DisplayName("Deve retornar o produto")
   public void deveRetornarProduto(){
-    Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
+    Produto produto = ProdutoTest.criarProdutoSemId();
     Produto produtoSalvo = this.entityManager.persist(produto);
     Optional<Produto> produtoRetornado = this.repository.findById(produtoSalvo.getId());
 
@@ -52,7 +52,7 @@ public class ProdutoRepositoryTest extends RepositoryTest {
   @Test
   @DisplayName("Deve apagar um Produto")
   public void deveApagarProduto(){
-    Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
+    Produto produto = ProdutoTest.criarProdutoSemId();
     Produto produtoSalvo = this.entityManager.persist(produto);
     this.repository.delete(produtoSalvo);
     boolean existeProduto = this.repository.existsById(produtoSalvo.getId());
@@ -62,7 +62,7 @@ public class ProdutoRepositoryTest extends RepositoryTest {
   @Test
   @DisplayName("Deve salvar um Produto")
   public void deveSalvarProduto(){
-    Produto produto = ProdutoTest.criarProdutoComIdAutomatico();
+    Produto produto = ProdutoTest.criarProdutoSemId();
     Produto produtoSalvo = this.entityManager.persist(produto);
     Optional<Produto> produtoRetornado = this.repository.findById(produtoSalvo.getId());
 

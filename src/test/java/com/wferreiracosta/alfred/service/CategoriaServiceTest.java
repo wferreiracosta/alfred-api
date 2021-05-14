@@ -32,7 +32,7 @@ public class CategoriaServiceTest extends ServiceTest {
   @DisplayName("Deve buscar uma categoria por id")
   public void buscarCategoriaPorId(){
     Integer id = 1;
-    Categoria categoria = CategoriaTest.criarCategoriaComIdAutomatico();
+    Categoria categoria = CategoriaTest.criarCategoriaSemId();
     categoria.setId(id);
 
     Mockito.when(this.repository.findById(id)).thenReturn(Optional.of(categoria));
@@ -60,7 +60,7 @@ public class CategoriaServiceTest extends ServiceTest {
   @DisplayName("Deve retornar todas as categorias no banco de dados, não deve retornar os produtos")
   public void buscarTodasAsCategoriasENaoTrasOsProdutos(){
     Integer id = 1;
-    Categoria categoria = CategoriaTest.criarCategoriaComIdAutomatico();
+    Categoria categoria = CategoriaTest.criarCategoriaSemId();
     categoria.setId(id);
     this.repository.save(categoria);
 
