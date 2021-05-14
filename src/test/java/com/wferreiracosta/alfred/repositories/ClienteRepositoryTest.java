@@ -1,7 +1,7 @@
 package com.wferreiracosta.alfred.repositories;
 
 import com.wferreiracosta.alfred.domain.Cliente;
-import com.wferreiracosta.alfred.domain.ClienteTest;
+import com.wferreiracosta.alfred.domain.ObjectDomain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ class ClienteRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve retornar verdadeiro quando o cliente existir no banco de dados")
     void retornarVerdadeiroQuandoExistirCliente() {
-        Cliente cliente = ClienteTest.criarClienteSemId();
+        Cliente cliente = ObjectDomain.criarClienteSemId();
         Cliente clienteSalvo = this.entityManager.persist(cliente);
         boolean existeCliente = this.repository.existsById(clienteSalvo.getId());
         assertThat(existeCliente).isTrue();
@@ -38,7 +38,7 @@ class ClienteRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve buscar cliente no banco de dados por id")
     void deveRetornarClienteSalvoNoBancoDeDados() {
-        Cliente cliente = ClienteTest.criarClienteSemId();
+        Cliente cliente = ObjectDomain.criarClienteSemId();
         Cliente clienteSalvo = this.entityManager.persist(cliente);
         Optional<Cliente> clienteRetornado = this.repository.findById(clienteSalvo.getId());
         assertThat(clienteRetornado).isPresent();
@@ -47,7 +47,7 @@ class ClienteRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve apagar um cliente no banco de dados")
     void deveApagarClienteNoBancoDeDados() {
-        Cliente cliente = ClienteTest.criarClienteSemId();
+        Cliente cliente = ObjectDomain.criarClienteSemId();
         Cliente clienteRetornado = this.entityManager.persist(cliente);
         this.repository.delete(clienteRetornado);
         Cliente clienteApagado = this.entityManager.find(Cliente.class, clienteRetornado.getId());
@@ -57,7 +57,7 @@ class ClienteRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve salvar cliente no banco de dados")
     void deveSalvarClienteNoBancoDeDados() {
-        Cliente cliente = ClienteTest.criarClienteSemId();
+        Cliente cliente = ObjectDomain.criarClienteSemId();
         Cliente clienteSalvo = this.repository.save(cliente);
         assertThat(clienteSalvo).isNotNull();
         assertThat(clienteSalvo.getNome()).isEqualTo(cliente.getNome());
@@ -69,8 +69,8 @@ class ClienteRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve retornar uma lista de clientes salva no banco de dados")
     void deveRetornarListaDeCliente() {
-        Cliente primeiroCliente = ClienteTest.criarClienteSemId();
-        Cliente segundoCliente = ClienteTest.criarClienteSemId();
+        Cliente primeiroCliente = ObjectDomain.criarClienteSemId();
+        Cliente segundoCliente = ObjectDomain.criarClienteSemId();
         this.entityManager.persist(primeiroCliente);
         this.entityManager.persist(segundoCliente);
         List<Cliente> listaClientes = this.repository.findAll();

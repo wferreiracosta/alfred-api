@@ -1,7 +1,7 @@
 package com.wferreiracosta.alfred.controllers;
 
+import com.wferreiracosta.alfred.domain.ObjectDomain;
 import com.wferreiracosta.alfred.domain.Produto;
-import com.wferreiracosta.alfred.domain.ProdutoTest;
 import com.wferreiracosta.alfred.service.ProdutoService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -31,7 +31,7 @@ public class ProdutoControllerTest extends ControllerTest {
   @DisplayName("Deve buscar e retornar o produto que existe relacionado a id")
   public void deveBuscarERetornarProdutoQueExiste() throws Exception {
     Integer id = 1;
-    Produto produto = ProdutoTest.criarProdutoSemId();
+    Produto produto = ObjectDomain.criarProdutoSemId();
     produto.setId(id);
 
     BDDMockito.given(this.service.findById(id))

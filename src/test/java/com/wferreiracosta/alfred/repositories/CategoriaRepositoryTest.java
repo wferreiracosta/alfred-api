@@ -1,7 +1,7 @@
 package com.wferreiracosta.alfred.repositories;
 
 import com.wferreiracosta.alfred.domain.Categoria;
-import com.wferreiracosta.alfred.domain.CategoriaTest;
+import com.wferreiracosta.alfred.domain.ObjectDomain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class CategoriaRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve retornar verdadeiro quando a categoria existir")
     public void retornarVerdadeiroQuandoExistirCategoria(){
-        Categoria categoria = CategoriaTest.criarCategoriaSemId();
+        Categoria categoria = ObjectDomain.criarCategoriaSemId();
         Categoria categoriaSalva = this.entityManager.persist(categoria);
         boolean existeCategoria = this.repository.existsById(categoriaSalva.getId());
         assertThat(existeCategoria).isTrue();
@@ -40,7 +40,7 @@ public class CategoriaRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve obter uma categoria por id")
     public void deveRetornaCategoria(){
-        Categoria categoria = CategoriaTest.criarCategoriaSemId();
+        Categoria categoria = ObjectDomain.criarCategoriaSemId();
         Categoria categoriaSalva = this.entityManager.persist(categoria);
         Optional<Categoria> categoriaRetornada = this.repository.findById(categoriaSalva.getId());
         assertThat(categoriaRetornada.isPresent()).isTrue();
@@ -49,7 +49,7 @@ public class CategoriaRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve apagar uma Categoria")
     public void apagarCategoria(){
-        Categoria categoria = CategoriaTest.criarCategoriaSemId();
+        Categoria categoria = ObjectDomain.criarCategoriaSemId();
         this.entityManager.persist(categoria);
         Categoria categoriaRetornada = this.entityManager.find(Categoria.class, categoria.getId());
         this.repository.delete(categoriaRetornada);
@@ -60,7 +60,7 @@ public class CategoriaRepositoryTest extends RepositoryTest {
     @Test
     @DisplayName("Deve salvar uma Categoria")
     public void salvarCategoria(){
-        Categoria categoria = CategoriaTest.criarCategoriaSemId();
+        Categoria categoria = ObjectDomain.criarCategoriaSemId();
         Categoria categoriaSalva = this.repository.save(categoria);
         assertThat(categoriaSalva.getId()).isNotNull();
         assertThat(categoriaSalva.getId()).isEqualTo(categoria.getId());

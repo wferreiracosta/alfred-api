@@ -1,7 +1,5 @@
 package com.wferreiracosta.alfred.repositories;
 
-import com.wferreiracosta.alfred.domain.Categoria;
-import com.wferreiracosta.alfred.domain.CategoriaTest;
 import com.wferreiracosta.alfred.domain.Estado;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

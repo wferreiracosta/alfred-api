@@ -1,7 +1,7 @@
 package com.wferreiracosta.alfred.controllers;
 
 import com.wferreiracosta.alfred.domain.Categoria;
-import com.wferreiracosta.alfred.domain.CategoriaTest;
+import com.wferreiracosta.alfred.domain.ObjectDomain;
 import com.wferreiracosta.alfred.domain.Produto;
 import com.wferreiracosta.alfred.dto.CategoriaDTO;
 import com.wferreiracosta.alfred.dto.CategoriaProdutoDTO;
@@ -38,7 +38,7 @@ public class CategoriaControllerTest extends ControllerTest {
   @DisplayName("Deve buscar uma categoria existente e retornar ela")
   public void deveBuscarERetornarUmaCategoriaExistente() throws Exception {
     Integer id = 1;
-    Categoria categoria = CategoriaTest.criarCategoriaSemId();
+    Categoria categoria = ObjectDomain.criarCategoriaSemId();
     categoria.setId(id);
 
     BDDMockito.given(this.service.findById(id))

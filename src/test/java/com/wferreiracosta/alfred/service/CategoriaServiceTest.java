@@ -1,7 +1,7 @@
 package com.wferreiracosta.alfred.service;
 
 import com.wferreiracosta.alfred.domain.Categoria;
-import com.wferreiracosta.alfred.domain.CategoriaTest;
+import com.wferreiracosta.alfred.domain.ObjectDomain;
 import com.wferreiracosta.alfred.repositories.CategoriaRepository;
 import com.wferreiracosta.alfred.service.impl.CategoriaServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,7 +32,7 @@ public class CategoriaServiceTest extends ServiceTest {
   @DisplayName("Deve buscar uma categoria por id")
   public void buscarCategoriaPorId(){
     Integer id = 1;
-    Categoria categoria = CategoriaTest.criarCategoriaSemId();
+    Categoria categoria = ObjectDomain.criarCategoriaSemId();
     categoria.setId(id);
 
     Mockito.when(this.repository.findById(id)).thenReturn(Optional.of(categoria));
@@ -60,7 +60,7 @@ public class CategoriaServiceTest extends ServiceTest {
   @DisplayName("Deve retornar todas as categorias no banco de dados, não deve retornar os produtos")
   public void buscarTodasAsCategoriasENaoTrasOsProdutos(){
     Integer id = 1;
-    Categoria categoria = CategoriaTest.criarCategoriaSemId();
+    Categoria categoria = ObjectDomain.criarCategoriaSemId();
     categoria.setId(id);
     this.repository.save(categoria);
 

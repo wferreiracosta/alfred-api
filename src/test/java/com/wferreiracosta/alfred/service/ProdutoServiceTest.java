@@ -1,7 +1,7 @@
 package com.wferreiracosta.alfred.service;
 
+import com.wferreiracosta.alfred.domain.ObjectDomain;
 import com.wferreiracosta.alfred.domain.Produto;
-import com.wferreiracosta.alfred.domain.ProdutoTest;
 import com.wferreiracosta.alfred.repositories.ProdutoRepository;
 import com.wferreiracosta.alfred.service.impl.ProdutoServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +30,7 @@ public class ProdutoServiceTest extends ServiceTest {
   @DisplayName("Deve retornar um Produto")
   public void deveRetornarProduto(){
     Integer id = 1;
-    Produto produto = ProdutoTest.criarProdutoSemId();
+    Produto produto = ObjectDomain.criarProdutoSemId();
     produto.setId(id);
 
     Mockito.when(this.repository.findById(id)).thenReturn(Optional.of(produto));
