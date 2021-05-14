@@ -114,12 +114,13 @@
 				<version>0.8.6</version>
 				<configuration>
 					<excludes>
-						<exclude>**/*com/wferreiracosta/alfred/AlfredApplication.class</exclude>
-						<exclude>**/*com/wferreiracosta/alfred/domain/*</exclude>
-						<exclude>**/*com/wferreiracosta/alfred/dto/*</exclude>
-						<exclude>**/*com/wferreiracosta/alfred/config/*</exclude>
-						<exclude>**/*com/wferreiracosta/alfred/controllers/exception/*</exclude>
-						<exclude>**/*com/wferreiracosta/alfred/service/impl/DataBaseServiceImpl.class</exclude>
+						<exclude>com/wferreiracosta/alfred/dto/*</exclude>
+						<exclude>com/wferreiracosta/alfred/domain/*</exclude>
+						<exclude>com/wferreiracosta/alfred/domain/enums/*</exclude>
+						<exclude>com/wferreiracosta/alfred/AlfredApplication.class</exclude>
+						<exclude>com/wferreiracosta/alfred/config/*</exclude>
+						<exclude>com/wferreiracosta/alfred/controllers/exception/*</exclude>
+						<exclude>com/wferreiracosta/alfred/service/impl/DataBaseServiceImpl.class</exclude>
 					</excludes>
 				</configuration>
 				<executions>
