@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,6 +16,7 @@ import java.util.Set;
 @Entity
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,7 +31,7 @@ public class Cliente implements Serializable {
     private Integer tipo;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-    private List<Endereco> enderecos;
+    private List<Endereco> enderecos = new ArrayList<>();
 
     @ElementCollection
     @CollectionTable(name = "TELEFONE")
