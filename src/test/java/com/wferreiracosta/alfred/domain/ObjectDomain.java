@@ -41,4 +41,13 @@ public class ObjectDomain {
                 .build();
     }
 
+    public static Cliente criarClienteComId() {
+        return Cliente.builder()
+                .id(1)
+                .nome("Pedro")
+                .cpfOuCnpj("18683776018")
+                .email("pedro@silva.com")
+                .tipo(TipoCliente.PESSOAFISICA.getId())
+                .build();
+    }
 }
