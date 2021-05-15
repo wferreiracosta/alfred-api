@@ -50,4 +50,15 @@ public class ObjectDomain {
                 .tipo(TipoCliente.PESSOAFISICA.getId())
                 .build();
     }
+
+    public static Endereco criarEnderecoSemId() {
+        return Endereco.builder()
+                .logradouro("Rua")
+                .numero("666")
+                .complemento("Lote 5")
+                .bairro("Liberdade")
+                .cep("32569123")
+                .build();
+    }
+
 }
