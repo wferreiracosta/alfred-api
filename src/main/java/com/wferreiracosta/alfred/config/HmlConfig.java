@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import java.text.ParseException;
+
 @Configuration
 @Profile("hml")
 public class HmlConfig {
@@ -13,7 +15,7 @@ public class HmlConfig {
     private DataBaseService dbService;
 
     @Bean
-    public boolean instantiateDatabase() {
+    public boolean instantiateDatabase() throws ParseException {
         dbService.instantiateTestDatabase();
         return true;
     }

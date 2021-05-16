@@ -37,6 +37,9 @@ public class Cliente implements Serializable {
     @CollectionTable(name = "TELEFONE")
     private Set<String> telefones = new HashSet<>();
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Pedido> pedidos = new ArrayList<>();
+
     public Cliente(Integer id, String nome, String email, String cpfOuCnpj, TipoCliente tipo) {
         this.id = id;
         this.nome = nome;
@@ -45,7 +48,7 @@ public class Cliente implements Serializable {
         this.tipo = tipo.getId();
     }
 
-    public TipoCliente getTipo(){
+    public TipoCliente getTipo() {
         return TipoCliente.toEnum(this.tipo);
     }
 

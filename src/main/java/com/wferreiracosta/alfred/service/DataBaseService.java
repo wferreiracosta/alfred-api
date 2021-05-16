@@ -1,5 +1,6 @@
 package com.wferreiracosta.alfred.service;
 
+import java.text.ParseException;
 import java.util.Arrays;
 
 import com.wferreiracosta.alfred.domain.Categoria;
@@ -13,6 +14,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface DataBaseService {
 
-	public void instantiateTestDatabase();
+	void instantiateTestDatabase() throws ParseException;
 
 }
