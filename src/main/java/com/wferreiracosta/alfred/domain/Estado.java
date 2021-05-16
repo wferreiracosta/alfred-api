@@ -1,5 +1,6 @@
 package com.wferreiracosta.alfred.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,8 +24,9 @@ public class Estado implements Serializable {
     private Integer id;
     private String nome;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "estado")
-    private List<Cidade> cidades = new ArrayList<>();
+    private final List<Cidade> cidades = new ArrayList<>();
 
     public Estado(Integer id, String nome) {
         this.id = id;

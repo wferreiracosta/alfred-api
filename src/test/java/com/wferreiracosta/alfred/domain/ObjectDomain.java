@@ -61,4 +61,15 @@ public class ObjectDomain {
                 .build();
     }
 
+    public static Endereco criarEnderecoComId() {
+        return Endereco.builder()
+                .id(1)
+                .logradouro("Rua")
+                .numero("666")
+                .complemento("Lote 5")
+                .bairro("Liberdade")
+                .cep("32569123")
+                .build();
+    }
+
 }
