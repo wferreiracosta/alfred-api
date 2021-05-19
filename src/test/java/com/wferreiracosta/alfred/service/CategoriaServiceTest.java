@@ -16,7 +16,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CategoriaServiceTest extends ServiceTest {
+class CategoriaServiceTest extends ServiceTest {
 
   CategoriaService service;
 
@@ -24,13 +24,13 @@ public class CategoriaServiceTest extends ServiceTest {
   CategoriaRepository repository;
 
   @BeforeEach
-  public void setUp() {
+  void setUp() {
       this.service = new CategoriaServiceImpl(repository);
   }
 
   @Test
   @DisplayName("Deve buscar uma categoria por id")
-  public void buscarCategoriaPorId(){
+  void buscarCategoriaPorId(){
     Integer id = 1;
     Categoria categoria = ObjectDomain.criarCategoriaSemId();
     categoria.setId(id);
@@ -39,26 +39,26 @@ public class CategoriaServiceTest extends ServiceTest {
 
     Optional<Categoria> categoriaRetornada = this.service.findById(id);
 
-    assertThat(categoriaRetornada.isPresent()).isTrue();
+    assertThat(categoriaRetornada).isPresent();
     assertThat(categoriaRetornada.get().getId()).isEqualTo(categoria.getId());
     assertThat(categoriaRetornada.get().getNome()).isEqualTo(categoria.getNome());
   }
 
   @Test
   @DisplayName("Deve buscar uma categoria que não existe por id")
-  public void buscarCategoriaQueNaoExistePorId(){
+  void buscarCategoriaQueNaoExistePorId(){
     Integer id = 1;
 
     Mockito.when(this.repository.findById(id)).thenReturn(Optional.empty());
 
     Optional<Categoria> categoriaRetornada = this.service.findById(id);
 
-    assertThat(categoriaRetornada.isPresent()).isFalse();
+    assertThat(categoriaRetornada).isNotPresent();
   }
 
   @Test
   @DisplayName("Deve retornar todas as categorias no banco de dados, não deve retornar os produtos")
-  public void buscarTodasAsCategoriasENaoTrasOsProdutos(){
+  void buscarTodasAsCategoriasENaoTrasOsProdutos(){
     Integer id = 1;
     Categoria categoria = ObjectDomain.criarCategoriaSemId();
     categoria.setId(id);
@@ -71,19 +71,21 @@ public class CategoriaServiceTest extends ServiceTest {
 
     List<Categoria> listaRetornada = this.service.findAll();
 
-    assertThat(listaRetornada).asList();
-    assertThat(listaRetornada.get(0)).isEqualTo(lista.get(0));
+    assertThat(listaRetornada)
+            .asList()
+            .isEqualTo(lista);
   }
 
   @Test
   @DisplayName("Deve retornar uma lista vazia porque não vai ter categoria cadastrada")
-  public void deveRetornarUmaListaVaziaPorqueNaoVaiTerCategoria(){
+  void deveRetornarUmaListaVaziaPorqueNaoVaiTerCategoria(){
     List<Categoria> lista = new ArrayList<>();
     Mockito.when(this.repository.findAll()).thenReturn(lista);
     List<Categoria> listaRetornada = this.service.findAll();
 
-    assertThat(listaRetornada).asList();
-    assertThat(listaRetornada).isEqualTo(lista);
+    assertThat(listaRetornada)
+            .asList()
+            .isEqualTo(lista);
   }
 
 }
