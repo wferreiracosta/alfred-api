@@ -2,6 +2,9 @@ package com.wferreiracosta.alfred.domain;
 
 import com.wferreiracosta.alfred.domain.enums.TipoCliente;
 
+/**
+ * Classe reponsavel por criar objetos das classes domain para os testes
+ */
 public class ObjectDomain {
 
     public static Categoria criarCategoriaSemId() {
