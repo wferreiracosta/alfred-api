@@ -14,7 +14,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ProdutoServiceTest extends ServiceTest {
+class ProdutoServiceTest extends ServiceTest {
 
   ProdutoService service;
 
@@ -22,13 +22,13 @@ public class ProdutoServiceTest extends ServiceTest {
   ProdutoRepository repository;
 
   @BeforeEach
-  public void setUp(){
+  void setUp(){
     this.service = new ProdutoServiceImpl(repository);
   }
 
   @Test
   @DisplayName("Deve retornar um Produto")
-  public void deveRetornarProduto(){
+  void deveRetornarProduto(){
     Integer id = 1;
     Produto produto = ObjectDomain.criarProdutoSemId();
     produto.setId(id);
@@ -36,7 +36,7 @@ public class ProdutoServiceTest extends ServiceTest {
     Mockito.when(this.repository.findById(id)).thenReturn(Optional.of(produto));
     Optional<Produto> produtoRetornado = this.service.findById(id);
 
-    assertThat(produtoRetornado.isPresent()).isTrue();
+    assertThat(produtoRetornado).isPresent();
     assertThat(produtoRetornado.get().getId()).isEqualTo(produto.getId());
     assertThat(produtoRetornado.get().getNome()).isEqualTo(produto.getNome());
     assertThat(produtoRetornado.get().getPreco()).isEqualTo(produto.getPreco());
@@ -44,12 +44,12 @@ public class ProdutoServiceTest extends ServiceTest {
 
   @Test
   @DisplayName("Não deve retornar Produto")
-  public void naoDeveRetornarProduto(){
+  void naoDeveRetornarProduto(){
     Integer id = 1;
 
     Mockito.when(this.repository.findById(id)).thenReturn(Optional.empty());
     Optional<Produto> produtoRetornado = this.service.findById(id);
 
-    assertThat(produtoRetornado.isPresent()).isFalse();
+    assertThat(produtoRetornado).isNotPresent();
   }
 }
