@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.Optional;
 
 @WebMvcTest(controllers = ProdutoController.class)
-public class ProdutoControllerTest extends ControllerTest {
+class ProdutoControllerTest extends ControllerTest {
   static final String PRODUTO_API = "/produtos";
 
   @Autowired
@@ -29,7 +29,7 @@ public class ProdutoControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve buscar e retornar o produto que existe relacionado a id")
-  public void deveBuscarERetornarProdutoQueExiste() throws Exception {
+  void deveBuscarERetornarProdutoQueExiste() throws Exception {
     Integer id = 1;
     Produto produto = ObjectDomain.criarProdutoSemId();
     produto.setId(id);
@@ -53,7 +53,7 @@ public class ProdutoControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve buscar um produto que não existe e retornar erro 404")
-  public void deveBuscarUmProdutoQueNaoExistente() throws Exception {
+  void deveBuscarUmProdutoQueNaoExistente() throws Exception {
     Integer id = 1;
     String msg = "Objeto não encontrado! Id: " + id + ", Tipo: " + Produto.class.getName();
 
