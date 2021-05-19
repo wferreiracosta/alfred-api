@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Optional;
 
 @WebMvcTest(controllers = CategoriaController.class)
-public class CategoriaControllerTest extends ControllerTest {
+class CategoriaControllerTest extends ControllerTest {
   static String CATEGORIA_API = "/categorias";
 
   @Autowired
@@ -36,7 +36,7 @@ public class CategoriaControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve buscar uma categoria existente e retornar ela")
-  public void deveBuscarERetornarUmaCategoriaExistente() throws Exception {
+  void deveBuscarERetornarUmaCategoriaExistente() throws Exception {
     Integer id = 1;
     Categoria categoria = ObjectDomain.criarCategoriaSemId();
     categoria.setId(id);
@@ -59,7 +59,7 @@ public class CategoriaControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve buscar uma categoria que não existe e retornar o status not_found")
-  public void deveBuscarUmaCategoriaQueNaoExistente() throws Exception {
+  void deveBuscarUmaCategoriaQueNaoExistente() throws Exception {
     Integer id = 1;
     String msg = "Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaDTO.class.getName();
 
@@ -80,7 +80,7 @@ public class CategoriaControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve buscar uma categoria existente e retornar ela é o produto associado")
-  public void deveBuscarERetornarUmaCategoriaExistenteEProduto() throws Exception {
+  void deveBuscarERetornarUmaCategoriaExistenteEProduto() throws Exception {
     Integer id = 1;
 
     Categoria categoria = new Categoria(id, "Informática");
@@ -111,7 +111,7 @@ public class CategoriaControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve buscar uma categoria existente que não possua produtos")
-  public void deveBuscarERetornarUmaCategoriaExistenteENaoTemProduto() throws Exception {
+  void deveBuscarERetornarUmaCategoriaExistenteENaoTemProduto() throws Exception {
     Integer id = 1;
 
     Categoria categoria = new Categoria(id, "Informática");
@@ -136,7 +136,7 @@ public class CategoriaControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve buscar categoria que não existe no endpoint que retorna produtos")
-  public void deveBuscarCategoriaQueNaoExisteNoEndpointQueRetornaProdutos() throws Exception {
+  void deveBuscarCategoriaQueNaoExisteNoEndpointQueRetornaProdutos() throws Exception {
     Integer id = 1;
     String msg = "Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaProdutoDTO.class.getName();
 
@@ -157,7 +157,7 @@ public class CategoriaControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve retornar todas as categorias cadastradas")
-  public void deveRetornarTodasAsCategoriasCadastradas() throws Exception {
+  void deveRetornarTodasAsCategoriasCadastradas() throws Exception {
     Integer id = 1;
     Categoria categoria = new Categoria(id, "Informática");
     List<Categoria> listaCategoria = new ArrayList<>();
@@ -180,7 +180,7 @@ public class CategoriaControllerTest extends ControllerTest {
 
   @Test
   @DisplayName("Deve retornar uma lista vazia porque não tem categoria cadastrada")
-  public void deveRetornarUmaListaVazia() throws Exception {
+  void deveRetornarUmaListaVazia() throws Exception {
     List<Categoria> listaCategoria = new ArrayList<>();
     BDDMockito.given(this.service.findAll())
             .willReturn(listaCategoria);
