@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.resources.utils;
+package br.com.wferreiracosta.alfred.controllers.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

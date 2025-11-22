@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.resources;
+package br.com.wferreiracosta.alfred.controllers;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.wferreiracosta.alfred.domain.Produto;
 import br.com.wferreiracosta.alfred.dto.ProdutoDTO;
-import br.com.wferreiracosta.alfred.resources.utils.URL;
+import br.com.wferreiracosta.alfred.controllers.utils.URL;
 import br.com.wferreiracosta.alfred.services.ProdutoService;
 
 @RestController
 @RequestMapping(value = "/produtos")
-public class ProdutoResource {
+public class ProdutoController {
 	
 	@Autowired
 	private ProdutoService service;

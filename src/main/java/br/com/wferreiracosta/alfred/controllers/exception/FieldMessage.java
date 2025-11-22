@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.resources.exception;
+package br.com.wferreiracosta.alfred.controllers.exception;
 
 import java.io.Serializable;
 

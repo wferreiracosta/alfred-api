@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.resources;
+package br.com.wferreiracosta.alfred.controllers;
 
 import java.net.URI;
 
@@ -18,7 +18,7 @@ import br.com.wferreiracosta.alfred.services.PedidoService;
 
 @RestController
 @RequestMapping(value = "/pedidos")
-public class PedidoResource {
+public class PedidoController {
 
 	@Autowired
 	private PedidoService service;

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.HandlerMapping;
 import br.com.wferreiracosta.alfred.domain.Cliente;
 import br.com.wferreiracosta.alfred.dto.ClienteDTO;
 import br.com.wferreiracosta.alfred.repositories.ClienteRepository;
-import br.com.wferreiracosta.alfred.resources.exception.FieldMessage;
+import br.com.wferreiracosta.alfred.controllers.exception.FieldMessage;
 
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
 	
