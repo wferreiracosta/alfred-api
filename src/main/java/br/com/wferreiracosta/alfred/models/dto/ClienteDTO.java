@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.dto;
+package br.com.wferreiracosta.alfred.models.dto;
 
 import java.io.Serializable;
 
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.wferreiracosta.alfred.domain.Cliente;
+import br.com.wferreiracosta.alfred.models.entities.Cliente;
 import br.com.wferreiracosta.alfred.services.validation.ClienteUpdate;
 
 @ClienteUpdate

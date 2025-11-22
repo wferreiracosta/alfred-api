@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import br.com.wferreiracosta.alfred.domain.enums.Perfil;
+import br.com.wferreiracosta.alfred.enums.Perfil;
 
 public class UserSS implements UserDetails{
 	private static final long serialVersionUID = 1L;

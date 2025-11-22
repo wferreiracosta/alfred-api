@@ -1,10 +1,10 @@
-package br.com.wferreiracosta.alfred.domain;
+package br.com.wferreiracosta.alfred.models.entities;
 
 import javax.persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
-import br.com.wferreiracosta.alfred.domain.enums.EstadoPagamento;
+import br.com.wferreiracosta.alfred.enums.EstadoPagamento;
 
 @Entity
 @JsonTypeName("pagamentoComCartao")

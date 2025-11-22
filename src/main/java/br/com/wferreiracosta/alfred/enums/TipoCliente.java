@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.domain.enums;
+package br.com.wferreiracosta.alfred.enums;
 
 public enum TipoCliente {
 	PESSOA_FISICA(1, "Pessoa Física"),

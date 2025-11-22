@@ -6,8 +6,8 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.wferreiracosta.alfred.domain.PagamentoComBoleto;
-import br.com.wferreiracosta.alfred.domain.PagamentoComCartao;
+import br.com.wferreiracosta.alfred.models.entities.PagamentoComBoleto;
+import br.com.wferreiracosta.alfred.models.entities.PagamentoComCartao;
 
 @Configuration
 public class JacksonConfig {

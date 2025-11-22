@@ -13,7 +13,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import br.com.wferreiracosta.alfred.domain.Pedido;
+import br.com.wferreiracosta.alfred.models.entities.Pedido;
 
 public abstract class AbstractEmailService implements EmailService {
 	@Value("${default.sender}")

@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.dto;
+package br.com.wferreiracosta.alfred.models.dto;
 
 import java.io.Serializable;
 

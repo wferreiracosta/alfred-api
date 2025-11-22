@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.wferreiracosta.alfred.domain.Cliente;
-import br.com.wferreiracosta.alfred.dto.ClienteDTO;
-import br.com.wferreiracosta.alfred.dto.ClienteNewDTO;
+import br.com.wferreiracosta.alfred.models.entities.Cliente;
+import br.com.wferreiracosta.alfred.models.dto.ClienteDTO;
+import br.com.wferreiracosta.alfred.models.dto.ClienteNewDTO;
 import br.com.wferreiracosta.alfred.services.ClienteService;
 @RestController
 @RequestMapping(value="/clientes")

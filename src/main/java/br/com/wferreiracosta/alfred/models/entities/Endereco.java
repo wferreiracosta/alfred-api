@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.domain;
+package br.com.wferreiracosta.alfred.models.entities;
 
 import java.io.Serializable;
 

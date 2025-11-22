@@ -1,8 +1,8 @@
-package br.com.wferreiracosta.alfred.dto;
+package br.com.wferreiracosta.alfred.models.dto;
 
 import java.io.Serializable;
 
-import br.com.wferreiracosta.alfred.domain.Produto;
+import br.com.wferreiracosta.alfred.models.entities.Produto;
 
 public class ProdutoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

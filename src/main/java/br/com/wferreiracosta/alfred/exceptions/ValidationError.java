@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.controllers.exception;
+package br.com.wferreiracosta.alfred.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.domain;
+package br.com.wferreiracosta.alfred.models.entities;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-import br.com.wferreiracosta.alfred.domain.enums.EstadoPagamento;
+import br.com.wferreiracosta.alfred.enums.EstadoPagamento;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

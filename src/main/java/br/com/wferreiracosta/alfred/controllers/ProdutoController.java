@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.wferreiracosta.alfred.domain.Produto;
-import br.com.wferreiracosta.alfred.dto.ProdutoDTO;
+import br.com.wferreiracosta.alfred.models.entities.Produto;
+import br.com.wferreiracosta.alfred.models.dto.ProdutoDTO;
 import br.com.wferreiracosta.alfred.utils.URL;
 import br.com.wferreiracosta.alfred.services.ProdutoService;
 

@@ -8,11 +8,11 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.wferreiracosta.alfred.domain.Cliente;
-import br.com.wferreiracosta.alfred.domain.enums.TipoCliente;
-import br.com.wferreiracosta.alfred.dto.ClienteNewDTO;
+import br.com.wferreiracosta.alfred.models.entities.Cliente;
+import br.com.wferreiracosta.alfred.enums.TipoCliente;
+import br.com.wferreiracosta.alfred.models.dto.ClienteNewDTO;
 import br.com.wferreiracosta.alfred.repositories.ClienteRepository;
-import br.com.wferreiracosta.alfred.controllers.exception.FieldMessage;
+import br.com.wferreiracosta.alfred.exceptions.FieldMessage;
 import br.com.wferreiracosta.alfred.services.validation.utils.BR;
 
 public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, ClienteNewDTO> {

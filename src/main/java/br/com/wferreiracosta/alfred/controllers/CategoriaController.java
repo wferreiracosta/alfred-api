@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.wferreiracosta.alfred.domain.Categoria;
-import br.com.wferreiracosta.alfred.dto.CategoriaDTO;
+import br.com.wferreiracosta.alfred.models.entities.Categoria;
+import br.com.wferreiracosta.alfred.models.dto.CategoriaDTO;
 import br.com.wferreiracosta.alfred.services.CategoriaService;
 @RestController
 @RequestMapping(value="/categorias")

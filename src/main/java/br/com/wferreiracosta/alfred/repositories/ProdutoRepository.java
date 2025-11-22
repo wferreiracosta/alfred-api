@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.wferreiracosta.alfred.domain.Categoria;
-import br.com.wferreiracosta.alfred.domain.Produto;
+import br.com.wferreiracosta.alfred.models.entities.Categoria;
+import br.com.wferreiracosta.alfred.models.entities.Produto;
 
 public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 

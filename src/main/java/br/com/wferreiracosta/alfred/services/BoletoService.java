@@ -5,7 +5,7 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import br.com.wferreiracosta.alfred.domain.PagamentoComBoleto;
+import br.com.wferreiracosta.alfred.models.entities.PagamentoComBoleto;
 
 @Service
 public class BoletoService {

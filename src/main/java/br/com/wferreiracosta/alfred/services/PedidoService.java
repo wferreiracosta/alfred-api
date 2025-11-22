@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.com.wferreiracosta.alfred.domain.ItemPedido;
-import br.com.wferreiracosta.alfred.domain.PagamentoComBoleto;
-import br.com.wferreiracosta.alfred.domain.Pedido;
-import br.com.wferreiracosta.alfred.domain.enums.EstadoPagamento;
+import br.com.wferreiracosta.alfred.models.entities.ItemPedido;
+import br.com.wferreiracosta.alfred.models.entities.PagamentoComBoleto;
+import br.com.wferreiracosta.alfred.models.entities.Pedido;
+import br.com.wferreiracosta.alfred.enums.EstadoPagamento;
 import br.com.wferreiracosta.alfred.repositories.ClienteRepository;
 import br.com.wferreiracosta.alfred.repositories.ItemPedidoRepository;
 import br.com.wferreiracosta.alfred.repositories.PagamentoRepository;

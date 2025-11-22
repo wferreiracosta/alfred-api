@@ -4,7 +4,7 @@ import javax.mail.internet.MimeMessage;
 
 import org.springframework.mail.SimpleMailMessage;
 
-import br.com.wferreiracosta.alfred.domain.Pedido;
+import br.com.wferreiracosta.alfred.models.entities.Pedido;
 
 public interface EmailService {
 	void sendOrderConfirmationEmail(Pedido obj);

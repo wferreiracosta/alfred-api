@@ -1,13 +1,14 @@
-package br.com.wferreiracosta.alfred.domain.enums;
+package br.com.wferreiracosta.alfred.enums;
 
-public enum Perfil {
-	ADMIN(1, "ROLE_ADMIN"),
-	CLIENTE(2, "ROLE_CLIENTE");
+public enum EstadoPagamento {
+	PENDENTE(1, "Pagamento Pendente"),
+	QUITADO(2, "Pagamento Quitado"),
+	CANCELADO(3, "Pagamento Cancelado");
 
 	private int cod;
 	private String descricao;
 
-	private Perfil(int cod, String descricao) {
+	private EstadoPagamento(int cod, String descricao) {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
@@ -20,12 +21,12 @@ public enum Perfil {
 		return descricao;
 	}
 
-	public static Perfil toEnum(Integer cod) {
+	public static EstadoPagamento toEnum(Integer cod) {
 		if (cod == null) {
 			return null;
 		}
 
-		for (Perfil x : Perfil.values()) {
+		for (EstadoPagamento x : EstadoPagamento.values()) {
 			if (cod.equals(x.getCod())) {
 				return x;
 			}

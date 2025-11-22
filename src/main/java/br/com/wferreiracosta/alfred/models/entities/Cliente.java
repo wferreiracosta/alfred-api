@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.domain;
+package br.com.wferreiracosta.alfred.models.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,8 +20,8 @@ import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import br.com.wferreiracosta.alfred.domain.enums.Perfil;
-import br.com.wferreiracosta.alfred.domain.enums.TipoCliente;
+import br.com.wferreiracosta.alfred.enums.Perfil;
+import br.com.wferreiracosta.alfred.enums.TipoCliente;
 
 @Entity
 public class Cliente implements Serializable {

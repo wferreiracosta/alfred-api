@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.dto;
+package br.com.wferreiracosta.alfred.models.dto;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
-import br.com.wferreiracosta.alfred.domain.Categoria;
+import br.com.wferreiracosta.alfred.models.entities.Categoria;
 
 public class CategoriaDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

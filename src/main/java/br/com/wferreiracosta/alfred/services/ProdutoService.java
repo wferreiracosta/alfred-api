@@ -9,8 +9,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import br.com.wferreiracosta.alfred.domain.Categoria;
-import br.com.wferreiracosta.alfred.domain.Produto;
+import br.com.wferreiracosta.alfred.models.entities.Categoria;
+import br.com.wferreiracosta.alfred.models.entities.Produto;
 import br.com.wferreiracosta.alfred.repositories.CategoriaRepository;
 import br.com.wferreiracosta.alfred.repositories.ProdutoRepository;
 import br.com.wferreiracosta.alfred.services.exceptions.ObjectNotFoundException;
