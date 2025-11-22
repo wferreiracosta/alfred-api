@@ -14,6 +14,24 @@ Alfred - Projeto de uma API de loja desenvolvido com Spring Boot.
 
 ---
 
+## Arquitetura do Projeto
+
+O projeto utiliza o padrão de **Arquitetura em Camadas (Layered Architecture)**, que organiza o código em camadas lógicas com responsabilidades bem definidas. Isso promove a separação de conceitos, facilita a manutenção e melhora a testabilidade.
+
+O fluxo de dependência é unidirecional: uma camada só pode interagir com a camada imediatamente abaixo dela.
+
+**`Controllers` → `Services` → `Repositories`**
+
+As camadas do projeto são:
+
+*   **`controllers` (Camada de Apresentação):** Responsável por expor os endpoints da API, receber requisições HTTP e retornar as respostas. É a porta de entrada da aplicação e não contém lógica de negócio.
+*   **`services` (Camada de Serviço):** Contém a lógica de negócio principal, regras e orquestração das operações. É chamada pelos controllers e utiliza os repositories para acessar os dados.
+*   **`repositories` (Camada de Acesso a Dados):** Interface para a comunicação com o banco de dados. Abstrai a lógica de persistência (CRUD) para que a camada de serviço não precise se preocupar com a implementação do banco.
+*   **`entities` (Modelo de Dados):** Classes que mapeiam as tabelas do banco de dados (Entidades JPA).
+*   **`dto` (Data Transfer Object):** Objetos que modelam os dados transferidos entre o cliente e a API, garantindo que a estrutura interna do banco de dados não seja exposta.
+
+---
+
 ## Como Executar o Projeto
 
 ### Pré-requisitos
