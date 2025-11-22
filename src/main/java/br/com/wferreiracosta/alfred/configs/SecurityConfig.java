@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.config;
+package br.com.wferreiracosta.alfred.configs;
 
 import java.util.Arrays;
 
@@ -19,9 +19,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import br.com.wferreiracosta.alfred.security.JWTAuthenticationFilter;
-import br.com.wferreiracosta.alfred.security.JWTAuthorizationFilter;
-import br.com.wferreiracosta.alfred.security.JWTUtil;
+import br.com.wferreiracosta.alfred.securities.JWTAuthenticationFilter;
+import br.com.wferreiracosta.alfred.securities.JWTAuthorizationFilter;
+import br.com.wferreiracosta.alfred.securities.JWTUtil;
 
 @Configuration
 @EnableWebSecurity

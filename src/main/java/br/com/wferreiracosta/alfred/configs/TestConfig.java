@@ -1,38 +1,31 @@
-package br.com.wferreiracosta.alfred.config;
+package br.com.wferreiracosta.alfred.configs;
 
 import java.text.ParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import br.com.wferreiracosta.alfred.services.DBService;
 import br.com.wferreiracosta.alfred.services.EmailService;
-import br.com.wferreiracosta.alfred.services.SmtpEmailService;
+import br.com.wferreiracosta.alfred.services.MockEmailService;
 
 @Configuration
-@Profile("dev")
-public class DevConfig {
-	
+@Profile("test")
+public class TestConfig {
+
 	@Autowired
 	private DBService dbService;
-	
-	@Value("${spring.jpa.hibernate.ddl-auto}")
-	private String strategy;
-	
+
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
-		if(!strategy.equals("create")) {
-			return false;
-		}
 		dbService.instantiateTestDatabase();
 		return true;
 	}
-	
+
 	@Bean
 	public EmailService emailService() {
-		return new SmtpEmailService();
+		return new MockEmailService();
 	}
 }

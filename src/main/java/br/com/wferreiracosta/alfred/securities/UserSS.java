@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.security;
+package br.com.wferreiracosta.alfred.securities;
 
 import java.util.Collection;
 import java.util.Set;

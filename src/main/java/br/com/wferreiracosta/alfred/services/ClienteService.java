@@ -21,7 +21,7 @@ import br.com.wferreiracosta.alfred.models.dto.ClienteDTO;
 import br.com.wferreiracosta.alfred.models.dto.ClienteNewDTO;
 import br.com.wferreiracosta.alfred.repositories.ClienteRepository;
 import br.com.wferreiracosta.alfred.repositories.EnderecoRepository;
-import br.com.wferreiracosta.alfred.security.UserSS;
+import br.com.wferreiracosta.alfred.securities.UserSS;
 import br.com.wferreiracosta.alfred.services.exceptions.AuthorizationException;
 import br.com.wferreiracosta.alfred.services.exceptions.DataIntegrityException;
 import br.com.wferreiracosta.alfred.services.exceptions.ObjectNotFoundException;

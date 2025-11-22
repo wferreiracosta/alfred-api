@@ -2,7 +2,7 @@ package br.com.wferreiracosta.alfred.services;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import br.com.wferreiracosta.alfred.security.UserSS;
+import br.com.wferreiracosta.alfred.securities.UserSS;
 
 public class UserService {
 	

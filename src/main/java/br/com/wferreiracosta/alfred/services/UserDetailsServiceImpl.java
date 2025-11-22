@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.wferreiracosta.alfred.models.entities.Cliente;
 import br.com.wferreiracosta.alfred.repositories.ClienteRepository;
-import br.com.wferreiracosta.alfred.security.UserSS;
+import br.com.wferreiracosta.alfred.securities.UserSS;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{

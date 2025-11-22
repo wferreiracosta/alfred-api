@@ -1,4 +1,4 @@
-package br.com.wferreiracosta.alfred.config;
+package br.com.wferreiracosta.alfred.configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
