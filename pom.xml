@@ -6,17 +6,21 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.4.RELEASE</version>
+		<version>2.7.18</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.wferreiracosta.loja</groupId>
-	<artifactId>loja</artifactId>
+	<groupId>br.com.wferreiracosta.alfred</groupId>
+	<artifactId>alfred</artifactId>
 	<version>1.0.0</version>
-	<name>Loja</name>
-	<description>Projeto de uma API de loja</description>
+	<name>alfred</name>
+	<description>Alfred - Projeto de uma API de loja</description>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<jjwt.version>0.9.1</jjwt.version>
+		<mysql.version>8.0.33</mysql.version>
 	</properties>
 
 	<dependencies>
@@ -48,7 +52,7 @@
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
-			<version>0.9.1</version>
+			<version>${jjwt.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -58,10 +62,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
 		</dependency>
 	</dependencies>
 
